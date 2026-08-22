@@ -65,7 +65,38 @@
 
     <script>
         function startQuiz() {
-            alert("Drink Builder coming soon...");
+    document.querySelector(".container").innerHTML = `
+        <h1>نوشیدنی خودت را بساز</h1>
+
+        <p>اول پایه نوشیدنی خودت را انتخاب کن</p>
+
+        <button onclick="chooseBase('قهوه')">
+            ☕ قهوه
+        </button>
+
+        <br>
+
+        <button onclick="chooseBase('چای')">
+            🍵 چای
+        </button>
+
+        <br>
+
+        <button onclick="chooseBase('شیر')">
+            🥛 شیر
+        </button>
+
+        <br>
+
+        <button onclick="chooseBase('بدون کافئین')">
+            🍋 بدون کافئین
+        </button>
+    `;
+}
+
+function chooseBase(base) {
+    alert("پایه انتخاب شد: " + base);
+}
         }
     </script>
 
