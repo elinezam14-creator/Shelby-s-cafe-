@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cafe Shelby</title>
 
     <style>
@@ -22,17 +23,20 @@
 
         h1 {
             font-size: 42px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         p {
             font-size: 18px;
             color: #c9c0aa;
+            margin-bottom: 35px;
         }
 
         button {
-            margin-top: 40px;
-            padding: 18px 45px;
+            display: block;
+            width: 100%;
+            margin: 15px 0;
+            padding: 18px 20px;
             font-size: 18px;
             background: transparent;
             color: #f1e8d0;
@@ -49,56 +53,59 @@
 
 <body>
 
-    <div class="container">
+<div class="container" id="app">
 
-        <h1>CAFE SHELBY</h1>
+    <h1>CAFE SHELBY</h1>
 
-        <p>
-            Create Your Own Drink
-        </p>
+    <p>
+        نوشیدنی خودت را بساز
+    </p>
 
-        <button onclick="startQuiz()">
-            BUILD YOUR DRINK
-        </button>
+    <button onclick="startBuilder()">
+        BUILD YOUR DRINK
+    </button>
 
-    </div>
+</div>
 
-    <script>
-        function startQuiz() {
-    document.querySelector(".container").innerHTML = `
+<script>
+
+function startBuilder() {
+
+    document.getElementById("app").innerHTML = `
+
         <h1>نوشیدنی خودت را بساز</h1>
 
-        <p>اول پایه نوشیدنی خودت را انتخاب کن</p>
+        <p>
+            اول پایه نوشیدنی خودت را انتخاب کن
+        </p>
 
         <button onclick="chooseBase('قهوه')">
             ☕ قهوه
         </button>
 
-        <br>
-
         <button onclick="chooseBase('چای')">
             🍵 چای
         </button>
-
-        <br>
 
         <button onclick="chooseBase('شیر')">
             🥛 شیر
         </button>
 
-        <br>
-
         <button onclick="chooseBase('بدون کافئین')">
             🍋 بدون کافئین
         </button>
+
     `;
+
 }
 
 function chooseBase(base) {
-    alert("پایه انتخاب شد: " + base);
+
+    alert("انتخاب شما: " + base);
+
 }
-        }
-    </script>
+
+</script>
 
 </body>
 </html>
