@@ -99,12 +99,36 @@ function startBuilder() {
 
 }
 
-function chooseBase(base) {
+functfunction chooseBase(base) {
 
-    alert("انتخاب شما: " + base);
+    document.getElementById("app").innerHTML = `
+
+        <h1>نوشیدنی خودت را بساز</h1>
+
+        <p>
+            نوشیدنی‌ات را سرد می‌خواهی یا گرم؟
+        </p>
+
+        <button onclick="chooseTemperature('${base}', 'سرد')">
+            ❄️ سرد
+        </button>
+
+        <button onclick="chooseTemperature('${base}', 'گرم')">
+            🔥 گرم
+        </button>
+
+    `;
 
 }
 
+function chooseTemperature(base, temperature) {
+
+    alert(
+        "پایه: " + base +
+        "\\nدمای نوشیدنی: " + temperature
+    );
+
+}
 </script>
 
 </body>
