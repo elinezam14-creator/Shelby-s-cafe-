@@ -16,108 +16,257 @@
 
         body {
             margin: 0;
-            background: #111111;
-            color: #f1e8d0;
-            font-family: Georgia, serif;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at center, #222 0%, #111 55%, #080808 100%);
+            color: #e8d7a8;
+            font-family: Georgia, "Times New Roman", serif;
             text-align: center;
         }
 
+
+        /* ===== صفحه اصلی ===== */
+
         .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 50px 20px;
+            width: calc(100% - 30px);
+            max-width: 650px;
+            min-height: calc(100vh - 30px);
+            margin: 15px auto;
+            padding: 55px 25px;
+            border: 1px solid #a88a4a;
+            outline: 1px solid #4d4028;
+            outline-offset: 7px;
+            position: relative;
         }
 
+
+        /* قاب داخلی */
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            border: 1px solid rgba(168, 138, 74, 0.35);
+            pointer-events: none;
+        }
+
+
+        /* ===== عنوان ===== */
+
         h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+            font-size: 42px;
+            letter-spacing: 4px;
+            margin: 15px 0 8px;
+            color: #e8d7a8;
+            text-shadow: 0 2px 8px #000;
         }
 
         h2 {
             font-size: 30px;
-            margin-bottom: 20px;
+            margin: 15px 0 20px;
+            color: #e8d7a8;
+        }
+
+        .shelby-line {
+            width: 150px;
+            height: 1px;
+            background: #a88a4a;
+            margin: 20px auto;
         }
 
         p {
             font-size: 18px;
-            color: #c9c0aa;
-            line-height: 1.8;
+            color: #c7b993;
+            line-height: 2;
             margin-bottom: 30px;
         }
 
-        .subtitle {
-            margin-bottom: 45px;
+
+        /* ===== متن صفحه اصلی ===== */
+
+        .welcome {
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 40px;
         }
 
-        .menu-button {
+
+        /* ===== پنل‌های اصلی ===== */
+
+        .main-button {
+            position: relative;
             display: block;
             width: 100%;
-            margin: 18px 0;
-            padding: 22px 20px;
+            margin: 20px 0;
+            padding: 24px 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(70, 60, 40, 0.35),
+                    rgba(15, 15, 15, 0.9)
+                );
+
+            color: #e8d7a8;
+
+            border: 1px solid #a88a4a;
+
+            font-family: Georgia, "Times New Roman", serif;
             font-size: 19px;
-            background: transparent;
-            color: #f1e8d0;
-            border: 1px solid #f1e8d0;
+
             cursor: pointer;
-            transition: 0.3s;
+
+            transition: 0.35s;
         }
 
-        .menu-button:hover {
-            background: #f1e8d0;
-            color: #111111;
+
+        .main-button:hover {
+            background: #e8d7a8;
+            color: #111;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
+
 
         .icon {
             display: block;
             font-size: 30px;
-            margin-bottom: 8px;
-        }
-
-        .question-number {
-            font-size: 14px;
-            color: #8f8878;
             margin-bottom: 10px;
         }
+
+
+        /* ===== شماره سؤال ===== */
+
+        .question-number {
+            font-size: 13px;
+            color: #8d7950;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+
+        /* ===== گزینه‌های سؤال ===== */
 
         .option {
             display: block;
             width: 100%;
             margin: 14px 0;
             padding: 18px 15px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(50, 45, 35, 0.3),
+                    rgba(10, 10, 10, 0.9)
+                );
+
+            color: #e8d7a8;
+
+            border: 1px solid #806b3f;
+
+            font-family: Georgia, "Times New Roman", serif;
             font-size: 17px;
-            background: transparent;
-            color: #f1e8d0;
-            border: 1px solid #f1e8d0;
+
             cursor: pointer;
             transition: 0.3s;
         }
 
+
         .option:hover {
-            background: #f1e8d0;
-            color: #111111;
+            background: #e8d7a8;
+            color: #111;
+            border-color: #e8d7a8;
         }
+
+
+        /* ===== دکمه برگشت ===== */
 
         .back-button {
-            margin-top: 25px;
-            border-color: #77705f;
-            color: #aaa18d;
+            margin-top: 35px;
+            border-color: #5d4d31;
+            color: #a89872;
         }
 
+
+        .back-button:hover {
+            background: #a89872;
+            color: #111;
+        }
+
+
+        /* ===== منو ===== */
+
+        .menu-box {
+            border: 1px solid #806b3f;
+            padding: 30px 20px;
+            margin-top: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(45, 40, 30, 0.3),
+                    rgba(10, 10, 10, 0.8)
+                );
+        }
+
+
+        /* ===== نتیجه ===== */
+
         .result {
-            border: 1px solid #f1e8d0;
+            border: 1px solid #a88a4a;
             padding: 25px;
             margin-top: 30px;
             text-align: right;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(50, 45, 35, 0.3),
+                    rgba(10, 10, 10, 0.8)
+                );
         }
+
 
         .result p {
             margin: 8px 0;
             font-size: 16px;
+            color: #c7b993;
         }
 
-        .instagram {
-            text-decoration: none;
+
+        .result strong {
+            color: #e8d7a8;
+        }
+
+
+        /* ===== موبایل ===== */
+
+        @media (max-width: 500px) {
+
+            .container {
+                padding: 45px 18px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 25px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .main-button {
+                font-size: 17px;
+                padding: 21px 15px;
+            }
+
         }
 
     </style>
@@ -130,14 +279,19 @@
 
 <div class="container" id="app">
 
+
+    <!-- ===== صفحه اصلی ===== -->
+
     <h1>CAFE SHELBY</h1>
 
-    <p class="subtitle">
-        به دنیای شلبی خوش آمدید
+    <div class="shelby-line"></div>
+
+    <p class="welcome">
+        به خانواده شلبی خوش آمدید
     </p>
 
 
-    <button class="menu-button" onclick="startBuilder()">
+    <button class="main-button" onclick="startBuilder()">
 
         <span class="icon">🥃</span>
 
@@ -146,7 +300,7 @@
     </button>
 
 
-    <button class="menu-button" onclick="showMenu()">
+    <button class="main-button" onclick="showMenu()">
 
         <span class="icon">📖</span>
 
@@ -155,7 +309,7 @@
     </button>
 
 
-    <button class="menu-button" onclick="openInstagram()">
+    <button class="main-button" onclick="showInstagram()">
 
         <span class="icon">📸</span>
 
@@ -168,6 +322,11 @@
 
 
 <script>
+
+
+/* =========================
+   اطلاعات نوشیدنی
+========================= */
 
 
 let drink = {
@@ -184,6 +343,95 @@ let drink = {
 };
 
 
+
+/* =========================
+   صفحه اصلی
+========================= */
+
+
+function goHome() {
+
+    document.getElementById("app").innerHTML = `
+
+        <h1>CAFE SHELBY</h1>
+
+        <div class="shelby-line"></div>
+
+        <p class="welcome">
+            به خانواده شلبی خوش آمدید
+        </p>
+
+
+        <button class="main-button" onclick="startBuilder()">
+
+            <span class="icon">🥃</span>
+
+            نوشیدنی خودت را بساز
+
+        </button>
+
+
+        <button class="main-button" onclick="showMenu()">
+
+            <span class="icon">📖</span>
+
+            منوی کافه
+
+        </button>
+
+
+        <button class="main-button" onclick="showInstagram()">
+
+            <span class="icon">📸</span>
+
+            اینستاگرام کافه
+
+        </button>
+
+    `;
+
+}
+
+
+
+/* =========================
+   اینستاگرام
+========================= */
+
+
+function showInstagram() {
+
+    document.getElementById("app").innerHTML = `
+
+        <h2>اینستاگرام کافه</h2>
+
+        <div class="shelby-line"></div>
+
+        <p>
+            خانواده شلبی را در اینستاگرام دنبال کن.
+        </p>
+
+
+        <button class="main-button" onclick="openInstagram()">
+
+            <span class="icon">📸</span>
+
+            ورود به پیج اینستاگرام
+
+        </button>
+
+
+        <button class="option back-button" onclick="goHome()">
+
+            ← بازگشت به صفحه اصلی
+
+        </button>
+
+    `;
+
+}
+
+
 function openInstagram() {
 
     window.open(
@@ -194,22 +442,38 @@ function openInstagram() {
 }
 
 
+
+/* =========================
+   منو
+========================= */
+
+
 function showMenu() {
 
     document.getElementById("app").innerHTML = `
 
-        <h1>منوی کافه</h1>
+        <h2>منوی کافه</h2>
 
-        <p>
-            منوی کافه شلبی
-        </p>
+        <div class="shelby-line"></div>
 
-        <p>
-            این بخش به‌زودی با منوی کامل کافه شلبی تکمیل می‌شود.
-        </p>
+
+        <div class="menu-box">
+
+            <p>
+                منوی کافه شلبی
+            </p>
+
+            <p>
+                این بخش آماده است تا منوی کامل کافه در آن قرار بگیرد.
+            </p>
+
+        </div>
+
 
         <button class="option back-button" onclick="goHome()">
+
             ← بازگشت به صفحه اصلی
+
         </button>
 
     `;
@@ -217,11 +481,10 @@ function showMenu() {
 }
 
 
-function goHome() {
 
-    location.reload();
-
-}
+/* =========================
+   شروع ساخت نوشیدنی
+========================= */
 
 
 function startBuilder() {
@@ -232,26 +495,37 @@ function startBuilder() {
             مرحله ۱ از ۸
         </div>
 
+
         <h2>پایه‌ی داستان</h2>
+
 
         <p>
             داستان نوشیدنی تو از کجا شروع بشه؟
         </p>
 
+
         <button class="option" onclick="chooseBase('اسپرسوی تلخ')">
             ☕ از یک اسپرسوی تلخ
         </button>
+
 
         <button class="option" onclick="chooseBase('چای آرام')">
             🍵 از یک چای آرام
         </button>
 
+
         <button class="option" onclick="chooseBase('طعم میوه‌ای')">
             🍓 از یک طعم میوه‌ای
         </button>
 
+
         <button class="option" onclick="chooseBase('نوشیدنی خنک')">
             🥂 از یک نوشیدنی خنک
+        </button>
+
+
+        <button class="option back-button" onclick="goHome()">
+            ← بازگشت به صفحه اصلی
         </button>
 
     `;
@@ -259,9 +533,16 @@ function startBuilder() {
 }
 
 
+
+/* =========================
+   مرحله ۲
+========================= */
+
+
 function chooseBase(base) {
 
     drink.base = base;
+
 
     document.getElementById("app").innerHTML = `
 
@@ -269,26 +550,37 @@ function chooseBase(base) {
             مرحله ۲ از ۸
         </div>
 
+
         <h2>حال و هوای نوشیدنی</h2>
+
 
         <p>
             امروز نوشیدنی‌ات چه حال و هوایی داشته باشه؟
         </p>
 
+
         <button class="option" onclick="chooseTemperature('گرم و صمیمی')">
             🔥 گرم و صمیمی
         </button>
+
 
         <button class="option" onclick="chooseTemperature('خنک و سرحال')">
             ❄️ خنک و سرحال
         </button>
 
+
         <button class="option" onclick="chooseTemperature('آرام و مرموز')">
             🌙 آرام و مرموز
         </button>
 
+
         <button class="option" onclick="chooseTemperature('پرانرژی و جسور')">
             ⚡ پرانرژی و جسور
+        </button>
+
+
+        <button class="option back-button" onclick="startBuilder()">
+            ← بازگشت
         </button>
 
     `;
@@ -300,36 +592,49 @@ function chooseTemperature(temperature) {
 
     drink.temperature = temperature;
 
+
     document.getElementById("app").innerHTML = `
 
         <div class="question-number">
             مرحله ۳ از ۸
         </div>
 
+
         <h2>وسوسه‌ات کدومه؟</h2>
+
 
         <p>
             اگر فقط یکی رو می‌تونستی انتخاب کنی...
         </p>
 
+
         <button class="option" onclick="chooseFlavor('شکلات')">
             🍫 شکلات
         </button>
+
 
         <button class="option" onclick="chooseFlavor('کارامل')">
             🍮 کارامل
         </button>
 
+
         <button class="option" onclick="chooseFlavor('توت‌فرنگی')">
             🍓 توت‌فرنگی
         </button>
+
 
         <button class="option" onclick="chooseFlavor('فندق')">
             🌰 فندق
         </button>
 
+
         <button class="option" onclick="chooseFlavor('مرکبات')">
             🍋 مرکبات
+        </button>
+
+
+        <button class="option back-button" onclick="chooseBase(drink.base)">
+            ← بازگشت
         </button>
 
     `;
@@ -341,32 +646,44 @@ function chooseFlavor(flavor) {
 
     drink.flavor = flavor;
 
+
     document.getElementById("app").innerHTML = `
 
         <div class="question-number">
             مرحله ۴ از ۸
         </div>
 
+
         <h2>شخصیت نوشیدنی</h2>
+
 
         <p>
             نوشیدنی تو باید چه شخصیتی داشته باشه؟
         </p>
 
+
         <button class="option" onclick="choosePersonality('تلخ و مرموز')">
             🖤 تلخ و مرموز
         </button>
+
 
         <button class="option" onclick="choosePersonality('شیرین و دوست‌داشتنی')">
             🤎 شیرین و دوست‌داشتنی
         </button>
 
+
         <button class="option" onclick="choosePersonality('جسور و هیجان‌انگیز')">
             ❤️ جسور و هیجان‌انگیز
         </button>
 
+
         <button class="option" onclick="choosePersonality('ظریف و لطیف')">
             🤍 ظریف و لطیف
+        </button>
+
+
+        <button class="option back-button" onclick="chooseTemperature(drink.temperature)">
+            ← بازگشت
         </button>
 
     `;
@@ -378,32 +695,44 @@ function choosePersonality(personality) {
 
     drink.personality = personality;
 
+
     document.getElementById("app").innerHTML = `
 
         <div class="question-number">
             مرحله ۵ از ۸
         </div>
 
+
         <h2>ریسک می‌کنی؟</h2>
+
 
         <p>
             چقدر اهل امتحان کردن طعم‌های جدیدی؟
         </p>
 
+
         <button class="option" onclick="chooseRisk('طعم‌های آشنا')">
             😌 همون چیزهای آشنا
         </button>
+
 
         <button class="option" onclick="chooseRisk('یه چیز متفاوت')">
             👀 یه چیز متفاوت
         </button>
 
+
         <button class="option" onclick="chooseRisk('سورپرایزم کن')">
             🔥 سورپرایزم کن
         </button>
 
+
         <button class="option" onclick="chooseRisk('کاملاً بسپار به شانس')">
             🎲 کاملاً بسپار به شانس
+        </button>
+
+
+        <button class="option back-button" onclick="chooseFlavor(drink.flavor)">
+            ← بازگشت
         </button>
 
     `;
@@ -415,32 +744,44 @@ function chooseRisk(risk) {
 
     drink.risk = risk;
 
+
     document.getElementById("app").innerHTML = `
 
         <div class="question-number">
             مرحله ۶ از ۸
         </div>
 
+
         <h2>میزان شیرینی</h2>
+
 
         <p>
             شیرینی رو چطور می‌پسندی؟
         </p>
 
+
         <button class="option" onclick="chooseSweetness('بدون شیرینی')">
             🖤 اصلاً شیرین نباشه
         </button>
+
 
         <button class="option" onclick="chooseSweetness('کم')">
             🤏 یه ذره
         </button>
 
+
         <button class="option" onclick="chooseSweetness('متعادل')">
             😋 متعادل
         </button>
 
+
         <button class="option" onclick="chooseSweetness('شیرین')">
             🍭 شیرین و جذاب
+        </button>
+
+
+        <button class="option back-button" onclick="choosePersonality(drink.personality)">
+            ← بازگشت
         </button>
 
     `;
@@ -452,40 +793,54 @@ function chooseSweetness(sweetness) {
 
     drink.sweetness = sweetness;
 
+
     document.getElementById("app").innerHTML = `
 
         <div class="question-number">
             مرحله ۷ از ۸
         </div>
 
+
         <h2>ضربه‌ی آخر</h2>
+
 
         <p>
             یه چیز اضافه کنیم که نوشیدنی خاص‌تر بشه؟
         </p>
 
+
         <button class="option" onclick="chooseTopping('خامه')">
             🍦 خامه
         </button>
+
 
         <button class="option" onclick="chooseTopping('شکلات')">
             🍫 شکلات
         </button>
 
+
         <button class="option" onclick="chooseTopping('فندق')">
             🌰 فندق
         </button>
+
 
         <button class="option" onclick="chooseTopping('میوه')">
             🍓 میوه
         </button>
 
+
         <button class="option" onclick="chooseTopping('یه ترکیب خاص')">
             ✨ یه ترکیب خاص
         </button>
 
+
         <button class="option" onclick="chooseTopping('بدون افزودنی')">
             ❌ نه، همین کافیه
+        </button>
+
+
+        <button class="option back-button" onclick="chooseRisk(drink.risk)">
+            ← بازگشت
         </button>
 
     `;
@@ -497,28 +852,39 @@ function chooseTopping(topping) {
 
     drink.topping = topping;
 
+
     document.getElementById("app").innerHTML = `
 
         <div class="question-number">
             مرحله ۸ از ۸
         </div>
 
+
         <h2>آخرین انتخاب</h2>
+
 
         <p>
             چقدر از نوشیدنی خودت می‌خوای؟
         </p>
 
+
         <button class="option" onclick="chooseSize('کوچیک و جمع‌وجور')">
             🥃 کوچیک و جمع‌وجور
         </button>
+
 
         <button class="option" onclick="chooseSize('استاندارد')">
             ☕ استاندارد
         </button>
 
+
         <button class="option" onclick="chooseSize('بزرگ و طولانی')">
             🥤 بزرگ و طولانی
+        </button>
+
+
+        <button class="option back-button" onclick="chooseSweetness(drink.sweetness)">
+            ← بازگشت
         </button>
 
     `;
@@ -535,15 +901,25 @@ function chooseSize(size) {
 }
 
 
+
+/* =========================
+   نتیجه نهایی
+========================= */
+
+
 function showResult() {
 
     document.getElementById("app").innerHTML = `
 
         <h1>نوشیدنی تو آماده‌ست</h1>
 
+        <div class="shelby-line"></div>
+
+
         <p>
             این نوشیدنی رو خودت ساختی.
         </p>
+
 
         <div class="result">
 
@@ -589,12 +965,14 @@ function showResult() {
 
         </div>
 
+
         <button class="option" onclick="startBuilder()">
             دوباره بساز
         </button>
 
+
         <button class="option back-button" onclick="goHome()">
-            ← صفحه اصلی
+            ← بازگشت به صفحه اصلی
         </button>
 
     `;
