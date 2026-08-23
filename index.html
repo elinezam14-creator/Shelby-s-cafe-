@@ -4,7 +4,6 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Cafe Shelby</title>
@@ -22,35 +21,64 @@
         .container {
             max-width: 600px;
             margin: auto;
-            padding: 60px 20px;
+            padding: 50px 20px;
         }
 
         h1 {
-            font-size: 38px;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 28px;
             margin-bottom: 20px;
         }
 
         p {
             font-size: 18px;
             color: #c9c0aa;
-            margin-bottom: 35px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .question-number {
+            font-size: 14px;
+            color: #8f8878;
+            margin-bottom: 10px;
         }
 
         button {
             display: block;
             width: 100%;
-            margin: 15px 0;
-            padding: 18px 20px;
-            font-size: 18px;
+            margin: 14px 0;
+            padding: 18px 15px;
+            font-size: 17px;
             background: transparent;
             color: #f1e8d0;
             border: 1px solid #f1e8d0;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         button:hover {
             background: #f1e8d0;
             color: #111111;
+        }
+
+        .result {
+            border: 1px solid #f1e8d0;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        .result p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        .restart {
+            margin-top: 30px;
         }
 
     </style>
@@ -59,6 +87,7 @@
 
 
 <body>
+
 
 <div class="container" id="app">
 
@@ -79,9 +108,16 @@
 
 
 let drink = {
+
     base: "",
     temperature: "",
-    flavor: ""
+    flavor: "",
+    personality: "",
+    risk: "",
+    sweetness: "",
+    topping: "",
+    size: ""
+
 };
 
 
@@ -89,26 +125,30 @@ function startBuilder() {
 
     document.getElementById("app").innerHTML = `
 
-        <h1>نوشیدنی خودت را بساز</h1>
+        <div class="question-number">
+            مرحله ۱ از ۸
+        </div>
+
+        <h2>پایه‌ی داستان</h2>
 
         <p>
-            اول پایه نوشیدنی خودت را انتخاب کن
+            داستان نوشیدنی تو از کجا شروع بشه؟
         </p>
 
-        <button onclick="chooseBase('قهوه')">
-            ☕ قهوه
+        <button onclick="chooseBase('اسپرسوی تلخ')">
+            ☕ از یک اسپرسوی تلخ
         </button>
 
-        <button onclick="chooseBase('چای')">
-            🍵 چای
+        <button onclick="chooseBase('چای آرام')">
+            🍵 از یک چای آرام
         </button>
 
-        <button onclick="chooseBase('شیر')">
-            🥛 شیر
+        <button onclick="chooseBase('طعم میوه‌ای')">
+            🍓 از یک طعم میوه‌ای
         </button>
 
-        <button onclick="chooseBase('بدون کافئین')">
-            🍋 بدون کافئین
+        <button onclick="chooseBase('نوشیدنی خنک')">
+            🥂 از یک نوشیدنی خنک
         </button>
 
     `;
@@ -122,18 +162,30 @@ function chooseBase(base) {
 
     document.getElementById("app").innerHTML = `
 
-        <h1>نوشیدنی خودت را بساز</h1>
+        <div class="question-number">
+            مرحله ۲ از ۸
+        </div>
+
+        <h2>حال و هوای نوشیدنی</h2>
 
         <p>
-            نوشیدنی‌ات را سرد می‌خواهی یا گرم؟
+            امروز نوشیدنی‌ات چه حال و هوایی داشته باشه؟
         </p>
 
-        <button onclick="chooseTemperature('سرد')">
-            ❄️ سرد
+        <button onclick="chooseTemperature('گرم و صمیمی')">
+            🔥 گرم و صمیمی
         </button>
 
-        <button onclick="chooseTemperature('گرم')">
-            🔥 گرم
+        <button onclick="chooseTemperature('خنک و سرحال')">
+            ❄️ خنک و سرحال
+        </button>
+
+        <button onclick="chooseTemperature('آرام و مرموز')">
+            🌙 آرام و مرموز
+        </button>
+
+        <button onclick="chooseTemperature('پرانرژی و جسور')">
+            ⚡ پرانرژی و جسور
         </button>
 
     `;
@@ -147,26 +199,34 @@ function chooseTemperature(temperature) {
 
     document.getElementById("app").innerHTML = `
 
-        <h1>انتخاب طعم</h1>
+        <div class="question-number">
+            مرحله ۳ از ۸
+        </div>
+
+        <h2>وسوسه‌ات کدومه؟</h2>
 
         <p>
-            چه طعمی دوست داری؟
+            اگر فقط یکی رو می‌تونستی انتخاب کنی...
         </p>
 
-        <button onclick="chooseFlavor('شکلاتی')">
-            🍫 شکلاتی
+        <button onclick="chooseFlavor('شکلات')">
+            🍫 شکلات
         </button>
 
-        <button onclick="chooseFlavor('کاراملی')">
-            🍮 کاراملی
+        <button onclick="chooseFlavor('کارامل')">
+            🍮 کارامل
         </button>
 
-        <button onclick="chooseFlavor('میوه‌ای')">
-            🍓 میوه‌ای
+        <button onclick="chooseFlavor('توت‌فرنگی')">
+            🍓 توت‌فرنگی
         </button>
 
-        <button onclick="chooseFlavor('وانیلی')">
-            🍦 وانیلی
+        <button onclick="chooseFlavor('فندق')">
+            🌰 فندق
+        </button>
+
+        <button onclick="chooseFlavor('مرکبات')">
+            🍋 مرکبات
         </button>
 
     `;
@@ -180,23 +240,255 @@ function chooseFlavor(flavor) {
 
     document.getElementById("app").innerHTML = `
 
-        <h1>نوشیدنی تو</h1>
+        <div class="question-number">
+            مرحله ۴ از ۸
+        </div>
+
+        <h2>شخصیت نوشیدنی</h2>
 
         <p>
-            پایه: ${drink.base}
+            نوشیدنی تو باید چه شخصیتی داشته باشه؟
         </p>
 
-        <p>
-            دما: ${drink.temperature}
-        </p>
+        <button onclick="choosePersonality('تلخ و مرموز')">
+            🖤 تلخ و مرموز
+        </button>
+
+        <button onclick="choosePersonality('شیرین و دوست‌داشتنی')">
+            🤎 شیرین و دوست‌داشتنی
+        </button>
+
+        <button onclick="choosePersonality('جسور و هیجان‌انگیز')">
+            ❤️ جسور و هیجان‌انگیز
+        </button>
+
+        <button onclick="choosePersonality('ظریف و لطیف')">
+            🤍 ظریف و لطیف
+        </button>
+
+    `;
+
+}
+
+
+function choosePersonality(personality) {
+
+    drink.personality = personality;
+
+    document.getElementById("app").innerHTML = `
+
+        <div class="question-number">
+            مرحله ۵ از ۸
+        </div>
+
+        <h2>ریسک می‌کنی؟</h2>
 
         <p>
-            طعم: ${drink.flavor}
+            چقدر اهل امتحان کردن طعم‌های جدیدی؟
         </p>
 
+        <button onclick="chooseRisk('طعم‌های آشنا')">
+            😌 همون چیزهای آشنا
+        </button>
+
+        <button onclick="chooseRisk('یه چیز متفاوت')">
+            👀 یه چیز متفاوت
+        </button>
+
+        <button onclick="chooseRisk('سورپرایزم کن')">
+            🔥 سورپرایزم کن
+        </button>
+
+        <button onclick="chooseRisk('کاملاً بسپار به شانس')">
+            🎲 کاملاً بسپار به شانس
+        </button>
+
+    `;
+
+}
+
+
+function chooseRisk(risk) {
+
+    drink.risk = risk;
+
+    document.getElementById("app").innerHTML = `
+
+        <div class="question-number">
+            مرحله ۶ از ۸
+        </div>
+
+        <h2>میزان شیرینی</h2>
+
         <p>
-            نوشیدنی شما با موفقیت ساخته شد.
+            شیرینی رو چطور می‌پسندی؟
         </p>
+
+        <button onclick="chooseSweetness('بدون شیرینی')">
+            🖤 اصلاً شیرین نباشه
+        </button>
+
+        <button onclick="chooseSweetness('کم')">
+            🤏 یه ذره
+        </button>
+
+        <button onclick="chooseSweetness('متعادل')">
+            😋 متعادل
+        </button>
+
+        <button onclick="chooseSweetness('شیرین')">
+            🍭 شیرین و جذاب
+        </button>
+
+    `;
+
+}
+
+
+function chooseSweetness(sweetness) {
+
+    drink.sweetness = sweetness;
+
+    document.getElementById("app").innerHTML = `
+
+        <div class="question-number">
+            مرحله ۷ از ۸
+        </div>
+
+        <h2>ضربه‌ی آخر</h2>
+
+        <p>
+            یه چیز اضافه کنیم که نوشیدنی خاص‌تر بشه؟
+        </p>
+
+        <button onclick="chooseTopping('خامه')">
+            🍦 خامه
+        </button>
+
+        <button onclick="chooseTopping('شکلات')">
+            🍫 شکلات
+        </button>
+
+        <button onclick="chooseTopping('فندق')">
+            🌰 فندق
+        </button>
+
+        <button onclick="chooseTopping('میوه')">
+            🍓 میوه
+        </button>
+
+        <button onclick="chooseTopping('یه ترکیب خاص')">
+            ✨ یه ترکیب خاص
+        </button>
+
+        <button onclick="chooseTopping('بدون افزودنی')">
+            ❌ نه، همین کافیه
+        </button>
+
+    `;
+
+}
+
+
+function chooseTopping(topping) {
+
+    drink.topping = topping;
+
+    document.getElementById("app").innerHTML = `
+
+        <div class="question-number">
+            مرحله ۸ از ۸
+        </div>
+
+        <h2>آخرین انتخاب</h2>
+
+        <p>
+            چقدر از نوشیدنی خودت می‌خوای؟
+        </p>
+
+        <button onclick="chooseSize('کوچیک و جمع‌وجور')">
+            🥃 کوچیک و جمع‌وجور
+        </button>
+
+        <button onclick="chooseSize('استاندارد')">
+            ☕ استاندارد
+        </button>
+
+        <button onclick="chooseSize('بزرگ و طولانی')">
+            🥤 بزرگ و طولانی
+        </button>
+
+    `;
+
+}
+
+
+function chooseSize(size) {
+
+    drink.size = size;
+
+    showResult();
+
+}
+
+
+function showResult() {
+
+    document.getElementById("app").innerHTML = `
+
+        <h1>نوشیدنی تو آماده‌ست</h1>
+
+        <p>
+            این نوشیدنی رو خودت ساختی.
+        </p>
+
+        <div class="result">
+
+            <p>
+                ☕ <strong>پایه:</strong>
+                ${drink.base}
+            </p>
+
+            <p>
+                🌡️ <strong>حال و هوا:</strong>
+                ${drink.temperature}
+            </p>
+
+            <p>
+                🍫 <strong>طعم:</strong>
+                ${drink.flavor}
+            </p>
+
+            <p>
+                🎭 <strong>شخصیت:</strong>
+                ${drink.personality}
+            </p>
+
+            <p>
+                🎲 <strong>ریسک:</strong>
+                ${drink.risk}
+            </p>
+
+            <p>
+                🍬 <strong>شیرینی:</strong>
+                ${drink.sweetness}
+            </p>
+
+            <p>
+                ✨ <strong>افزودنی:</strong>
+                ${drink.topping}
+            </p>
+
+            <p>
+                🥤 <strong>حجم:</strong>
+                ${drink.size}
+            </p>
+
+        </div>
+
+        <button class="restart" onclick="startBuilder()">
+            دوباره بساز
+        </button>
 
     `;
 
@@ -204,6 +496,7 @@ function chooseFlavor(flavor) {
 
 
 </script>
+
 
 </body>
 
