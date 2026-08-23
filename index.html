@@ -10,6 +10,10 @@
 
     <style>
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             background: #111111;
@@ -25,12 +29,13 @@
         }
 
         h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 40px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
         }
 
         h2 {
-            font-size: 28px;
+            font-size: 30px;
             margin-bottom: 20px;
         }
 
@@ -41,13 +46,41 @@
             margin-bottom: 30px;
         }
 
+        .subtitle {
+            margin-bottom: 45px;
+        }
+
+        .menu-button {
+            display: block;
+            width: 100%;
+            margin: 18px 0;
+            padding: 22px 20px;
+            font-size: 19px;
+            background: transparent;
+            color: #f1e8d0;
+            border: 1px solid #f1e8d0;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .menu-button:hover {
+            background: #f1e8d0;
+            color: #111111;
+        }
+
+        .icon {
+            display: block;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
         .question-number {
             font-size: 14px;
             color: #8f8878;
             margin-bottom: 10px;
         }
 
-        button {
+        .option {
             display: block;
             width: 100%;
             margin: 14px 0;
@@ -60,9 +93,15 @@
             transition: 0.3s;
         }
 
-        button:hover {
+        .option:hover {
             background: #f1e8d0;
             color: #111111;
+        }
+
+        .back-button {
+            margin-top: 25px;
+            border-color: #77705f;
+            color: #aaa18d;
         }
 
         .result {
@@ -77,8 +116,8 @@
             font-size: 16px;
         }
 
-        .restart {
-            margin-top: 30px;
+        .instagram {
+            text-decoration: none;
         }
 
     </style>
@@ -93,13 +132,37 @@
 
     <h1>CAFE SHELBY</h1>
 
-    <p>
-        نوشیدنی خودت را بساز
+    <p class="subtitle">
+        به دنیای شلبی خوش آمدید
     </p>
 
-    <button onclick="startBuilder()">
-        BUILD YOUR DRINK
+
+    <button class="menu-button" onclick="startBuilder()">
+
+        <span class="icon">🥃</span>
+
+        نوشیدنی خودت را بساز
+
     </button>
+
+
+    <button class="menu-button" onclick="showMenu()">
+
+        <span class="icon">📖</span>
+
+        منوی کافه
+
+    </button>
+
+
+    <button class="menu-button" onclick="openInstagram()">
+
+        <span class="icon">📸</span>
+
+        اینستاگرام کافه
+
+    </button>
+
 
 </div>
 
@@ -121,6 +184,46 @@ let drink = {
 };
 
 
+function openInstagram() {
+
+    window.open(
+        "https://www.instagram.com/Shellbyscafe/",
+        "_blank"
+    );
+
+}
+
+
+function showMenu() {
+
+    document.getElementById("app").innerHTML = `
+
+        <h1>منوی کافه</h1>
+
+        <p>
+            منوی کافه شلبی
+        </p>
+
+        <p>
+            این بخش به‌زودی با منوی کامل کافه شلبی تکمیل می‌شود.
+        </p>
+
+        <button class="option back-button" onclick="goHome()">
+            ← بازگشت به صفحه اصلی
+        </button>
+
+    `;
+
+}
+
+
+function goHome() {
+
+    location.reload();
+
+}
+
+
 function startBuilder() {
 
     document.getElementById("app").innerHTML = `
@@ -135,19 +238,19 @@ function startBuilder() {
             داستان نوشیدنی تو از کجا شروع بشه؟
         </p>
 
-        <button onclick="chooseBase('اسپرسوی تلخ')">
+        <button class="option" onclick="chooseBase('اسپرسوی تلخ')">
             ☕ از یک اسپرسوی تلخ
         </button>
 
-        <button onclick="chooseBase('چای آرام')">
+        <button class="option" onclick="chooseBase('چای آرام')">
             🍵 از یک چای آرام
         </button>
 
-        <button onclick="chooseBase('طعم میوه‌ای')">
+        <button class="option" onclick="chooseBase('طعم میوه‌ای')">
             🍓 از یک طعم میوه‌ای
         </button>
 
-        <button onclick="chooseBase('نوشیدنی خنک')">
+        <button class="option" onclick="chooseBase('نوشیدنی خنک')">
             🥂 از یک نوشیدنی خنک
         </button>
 
@@ -172,19 +275,19 @@ function chooseBase(base) {
             امروز نوشیدنی‌ات چه حال و هوایی داشته باشه؟
         </p>
 
-        <button onclick="chooseTemperature('گرم و صمیمی')">
+        <button class="option" onclick="chooseTemperature('گرم و صمیمی')">
             🔥 گرم و صمیمی
         </button>
 
-        <button onclick="chooseTemperature('خنک و سرحال')">
+        <button class="option" onclick="chooseTemperature('خنک و سرحال')">
             ❄️ خنک و سرحال
         </button>
 
-        <button onclick="chooseTemperature('آرام و مرموز')">
+        <button class="option" onclick="chooseTemperature('آرام و مرموز')">
             🌙 آرام و مرموز
         </button>
 
-        <button onclick="chooseTemperature('پرانرژی و جسور')">
+        <button class="option" onclick="chooseTemperature('پرانرژی و جسور')">
             ⚡ پرانرژی و جسور
         </button>
 
@@ -209,23 +312,23 @@ function chooseTemperature(temperature) {
             اگر فقط یکی رو می‌تونستی انتخاب کنی...
         </p>
 
-        <button onclick="chooseFlavor('شکلات')">
+        <button class="option" onclick="chooseFlavor('شکلات')">
             🍫 شکلات
         </button>
 
-        <button onclick="chooseFlavor('کارامل')">
+        <button class="option" onclick="chooseFlavor('کارامل')">
             🍮 کارامل
         </button>
 
-        <button onclick="chooseFlavor('توت‌فرنگی')">
+        <button class="option" onclick="chooseFlavor('توت‌فرنگی')">
             🍓 توت‌فرنگی
         </button>
 
-        <button onclick="chooseFlavor('فندق')">
+        <button class="option" onclick="chooseFlavor('فندق')">
             🌰 فندق
         </button>
 
-        <button onclick="chooseFlavor('مرکبات')">
+        <button class="option" onclick="chooseFlavor('مرکبات')">
             🍋 مرکبات
         </button>
 
@@ -250,19 +353,19 @@ function chooseFlavor(flavor) {
             نوشیدنی تو باید چه شخصیتی داشته باشه؟
         </p>
 
-        <button onclick="choosePersonality('تلخ و مرموز')">
+        <button class="option" onclick="choosePersonality('تلخ و مرموز')">
             🖤 تلخ و مرموز
         </button>
 
-        <button onclick="choosePersonality('شیرین و دوست‌داشتنی')">
+        <button class="option" onclick="choosePersonality('شیرین و دوست‌داشتنی')">
             🤎 شیرین و دوست‌داشتنی
         </button>
 
-        <button onclick="choosePersonality('جسور و هیجان‌انگیز')">
+        <button class="option" onclick="choosePersonality('جسور و هیجان‌انگیز')">
             ❤️ جسور و هیجان‌انگیز
         </button>
 
-        <button onclick="choosePersonality('ظریف و لطیف')">
+        <button class="option" onclick="choosePersonality('ظریف و لطیف')">
             🤍 ظریف و لطیف
         </button>
 
@@ -287,19 +390,19 @@ function choosePersonality(personality) {
             چقدر اهل امتحان کردن طعم‌های جدیدی؟
         </p>
 
-        <button onclick="chooseRisk('طعم‌های آشنا')">
+        <button class="option" onclick="chooseRisk('طعم‌های آشنا')">
             😌 همون چیزهای آشنا
         </button>
 
-        <button onclick="chooseRisk('یه چیز متفاوت')">
+        <button class="option" onclick="chooseRisk('یه چیز متفاوت')">
             👀 یه چیز متفاوت
         </button>
 
-        <button onclick="chooseRisk('سورپرایزم کن')">
+        <button class="option" onclick="chooseRisk('سورپرایزم کن')">
             🔥 سورپرایزم کن
         </button>
 
-        <button onclick="chooseRisk('کاملاً بسپار به شانس')">
+        <button class="option" onclick="chooseRisk('کاملاً بسپار به شانس')">
             🎲 کاملاً بسپار به شانس
         </button>
 
@@ -324,19 +427,19 @@ function chooseRisk(risk) {
             شیرینی رو چطور می‌پسندی؟
         </p>
 
-        <button onclick="chooseSweetness('بدون شیرینی')">
+        <button class="option" onclick="chooseSweetness('بدون شیرینی')">
             🖤 اصلاً شیرین نباشه
         </button>
 
-        <button onclick="chooseSweetness('کم')">
+        <button class="option" onclick="chooseSweetness('کم')">
             🤏 یه ذره
         </button>
 
-        <button onclick="chooseSweetness('متعادل')">
+        <button class="option" onclick="chooseSweetness('متعادل')">
             😋 متعادل
         </button>
 
-        <button onclick="chooseSweetness('شیرین')">
+        <button class="option" onclick="chooseSweetness('شیرین')">
             🍭 شیرین و جذاب
         </button>
 
@@ -361,27 +464,27 @@ function chooseSweetness(sweetness) {
             یه چیز اضافه کنیم که نوشیدنی خاص‌تر بشه؟
         </p>
 
-        <button onclick="chooseTopping('خامه')">
+        <button class="option" onclick="chooseTopping('خامه')">
             🍦 خامه
         </button>
 
-        <button onclick="chooseTopping('شکلات')">
+        <button class="option" onclick="chooseTopping('شکلات')">
             🍫 شکلات
         </button>
 
-        <button onclick="chooseTopping('فندق')">
+        <button class="option" onclick="chooseTopping('فندق')">
             🌰 فندق
         </button>
 
-        <button onclick="chooseTopping('میوه')">
+        <button class="option" onclick="chooseTopping('میوه')">
             🍓 میوه
         </button>
 
-        <button onclick="chooseTopping('یه ترکیب خاص')">
+        <button class="option" onclick="chooseTopping('یه ترکیب خاص')">
             ✨ یه ترکیب خاص
         </button>
 
-        <button onclick="chooseTopping('بدون افزودنی')">
+        <button class="option" onclick="chooseTopping('بدون افزودنی')">
             ❌ نه، همین کافیه
         </button>
 
@@ -406,15 +509,15 @@ function chooseTopping(topping) {
             چقدر از نوشیدنی خودت می‌خوای؟
         </p>
 
-        <button onclick="chooseSize('کوچیک و جمع‌وجور')">
+        <button class="option" onclick="chooseSize('کوچیک و جمع‌وجور')">
             🥃 کوچیک و جمع‌وجور
         </button>
 
-        <button onclick="chooseSize('استاندارد')">
+        <button class="option" onclick="chooseSize('استاندارد')">
             ☕ استاندارد
         </button>
 
-        <button onclick="chooseSize('بزرگ و طولانی')">
+        <button class="option" onclick="chooseSize('بزرگ و طولانی')">
             🥤 بزرگ و طولانی
         </button>
 
@@ -486,8 +589,12 @@ function showResult() {
 
         </div>
 
-        <button class="restart" onclick="startBuilder()">
+        <button class="option" onclick="startBuilder()">
             دوباره بساز
+        </button>
+
+        <button class="option back-button" onclick="goHome()">
+            ← صفحه اصلی
         </button>
 
     `;
