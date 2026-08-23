@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Cafe Shelby</title>
 
     <style>
+
         body {
             margin: 0;
             background: #111111;
@@ -22,7 +26,7 @@
         }
 
         h1 {
-            font-size: 42px;
+            font-size: 38px;
             margin-bottom: 20px;
         }
 
@@ -48,8 +52,11 @@
             background: #f1e8d0;
             color: #111111;
         }
+
     </style>
+
 </head>
+
 
 <body>
 
@@ -67,7 +74,9 @@
 
 </div>
 
+
 <script>
+
 
 function startBuilder() {
 
@@ -99,7 +108,8 @@ function startBuilder() {
 
 }
 
-functfunction chooseBase(base) {
+
+function chooseBase(base) {
 
     document.getElementById("app").innerHTML = `
 
@@ -121,15 +131,32 @@ functfunction chooseBase(base) {
 
 }
 
+
 function chooseTemperature(base, temperature) {
 
-    alert(
-        "پایه: " + base +
-        "\\nدمای نوشیدنی: " + temperature
-    );
+    document.getElementById("app").innerHTML = `
+
+        <h1>انتخاب تو</h1>
+
+        <p>
+            پایه: ${base}
+        </p>
+
+        <p>
+            دما: ${temperature}
+        </p>
+
+        <p>
+            مرحله بعدی به‌زودی اضافه می‌شود...
+        </p>
+
+    `;
 
 }
+
+
 </script>
 
 </body>
+
 </html>
