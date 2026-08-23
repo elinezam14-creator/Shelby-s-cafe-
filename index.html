@@ -78,6 +78,13 @@
 <script>
 
 
+let drink = {
+    base: "",
+    temperature: "",
+    flavor: ""
+};
+
+
 function startBuilder() {
 
     document.getElementById("app").innerHTML = `
@@ -111,6 +118,8 @@ function startBuilder() {
 
 function chooseBase(base) {
 
+    drink.base = base;
+
     document.getElementById("app").innerHTML = `
 
         <h1>نوشیدنی خودت را بساز</h1>
@@ -119,11 +128,11 @@ function chooseBase(base) {
             نوشیدنی‌ات را سرد می‌خواهی یا گرم؟
         </p>
 
-        <button onclick="chooseTemperature('${base}', 'سرد')">
+        <button onclick="chooseTemperature('سرد')">
             ❄️ سرد
         </button>
 
-        <button onclick="chooseTemperature('${base}', 'گرم')">
+        <button onclick="chooseTemperature('گرم')">
             🔥 گرم
         </button>
 
@@ -132,22 +141,61 @@ function chooseBase(base) {
 }
 
 
-function chooseTemperature(base, temperature) {
+function chooseTemperature(temperature) {
+
+    drink.temperature = temperature;
 
     document.getElementById("app").innerHTML = `
 
-        <h1>انتخاب تو</h1>
+        <h1>انتخاب طعم</h1>
 
         <p>
-            پایه: ${base}
+            چه طعمی دوست داری؟
+        </p>
+
+        <button onclick="chooseFlavor('شکلاتی')">
+            🍫 شکلاتی
+        </button>
+
+        <button onclick="chooseFlavor('کاراملی')">
+            🍮 کاراملی
+        </button>
+
+        <button onclick="chooseFlavor('میوه‌ای')">
+            🍓 میوه‌ای
+        </button>
+
+        <button onclick="chooseFlavor('وانیلی')">
+            🍦 وانیلی
+        </button>
+
+    `;
+
+}
+
+
+function chooseFlavor(flavor) {
+
+    drink.flavor = flavor;
+
+    document.getElementById("app").innerHTML = `
+
+        <h1>نوشیدنی تو</h1>
+
+        <p>
+            پایه: ${drink.base}
         </p>
 
         <p>
-            دما: ${temperature}
+            دما: ${drink.temperature}
         </p>
 
         <p>
-            مرحله بعدی به‌زودی اضافه می‌شود...
+            طعم: ${drink.flavor}
+        </p>
+
+        <p>
+            نوشیدنی شما با موفقیت ساخته شد.
         </p>
 
     `;
