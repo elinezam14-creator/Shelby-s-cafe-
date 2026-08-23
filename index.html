@@ -2,19 +2,30 @@
 <html lang="fa" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Cafe Shelby</title>
 
+
 <style>
+
+/* =========================================
+   GENERAL
+========================================= */
 
 * {
     box-sizing: border-box;
 }
 
+
 body {
+
     margin: 0;
+
     min-height: 100vh;
 
     background:
@@ -36,9 +47,14 @@ body {
 }
 
 
+/* =========================================
+   MAIN FRAME
+========================================= */
+
 .container {
 
     width: calc(100% - 30px);
+
     max-width: 650px;
 
     min-height: calc(100vh - 30px);
@@ -68,11 +84,17 @@ body {
     right: 12px;
     bottom: 12px;
 
-    border: 1px solid rgba(168,138,74,.35);
+    border:
+        1px solid
+        rgba(168,138,74,.35);
 
     pointer-events: none;
 }
 
+
+/* =========================================
+   TITLES
+========================================= */
 
 h1 {
 
@@ -136,7 +158,9 @@ p {
 }
 
 
-/* دکمه‌های اصلی */
+/* =========================================
+   BUTTONS
+========================================= */
 
 .main-button,
 .option {
@@ -158,7 +182,8 @@ p {
 
     color: #e8d7a8;
 
-    border: 1px solid #8c7441;
+    border:
+        1px solid #8c7441;
 
     font-family:
         Tahoma,
@@ -188,7 +213,8 @@ p {
 
     border-color: #e8d7a8;
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 
@@ -202,7 +228,9 @@ p {
 }
 
 
-/* شماره مرحله */
+/* =========================================
+   QUESTION NUMBER
+========================================= */
 
 .question-number {
 
@@ -221,7 +249,9 @@ p {
 }
 
 
-/* دکمه برگشت */
+/* =========================================
+   BACK BUTTON
+========================================= */
 
 .back-button {
 
@@ -233,11 +263,14 @@ p {
 }
 
 
-/* منو */
+/* =========================================
+   MENU
+========================================= */
 
 .menu-box {
 
-    border: 1px solid #806b3f;
+    border:
+        1px solid #806b3f;
 
     padding: 25px 18px;
 
@@ -270,7 +303,9 @@ p {
 }
 
 
-/* قیمت */
+/* =========================================
+   PRICE
+========================================= */
 
 .menu-price {
 
@@ -293,23 +328,14 @@ p {
 }
 
 
-/* توضیح */
-
-.menu-item-desc {
-
-    font-size: 14px;
-
-    color: #9f9478;
-
-    margin-top: 5px;
-}
-
-
-/* نتیجه */
+/* =========================================
+   RESULT
+========================================= */
 
 .result {
 
-    border: 1px solid #a88a4a;
+    border:
+        1px solid #a88a4a;
 
     padding: 25px;
 
@@ -333,6 +359,207 @@ p {
 }
 
 
+/* =========================================
+   SECRET FLOATING BUTTON
+========================================= */
+
+.secret-floating-button {
+
+    position: fixed;
+
+    bottom: 25px;
+
+    left: 25px;
+
+    width: 58px;
+
+    height: 58px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #302918,
+            #0c0c0c
+        );
+
+    color: #e8d7a8;
+
+    border:
+        1px solid #a88a4a;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px
+        rgba(168,138,74,.25);
+
+    z-index: 999;
+
+    transition: .3s;
+}
+
+
+.secret-floating-button:hover {
+
+    transform:
+        rotate(-8deg)
+        scale(1.08);
+
+    background: #e8d7a8;
+
+    color: #111;
+
+    box-shadow:
+        0 0 25px
+        rgba(232,215,168,.35);
+}
+
+
+/* =========================================
+   SECRET MENU
+========================================= */
+
+.secret-reveal {
+
+    animation:
+        secretAppear .7s ease forwards;
+
+    padding: 35px 15px;
+}
+
+
+.secret-symbol {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    animation:
+        hatAppear 1s ease;
+}
+
+
+.secret-drink-name {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 34px;
+
+    color: #e8d7a8;
+
+    margin: 25px 0 15px;
+
+    letter-spacing: 1px;
+
+    animation:
+        drinkAppear 1s ease;
+}
+
+
+.secret-message {
+
+    color: #a89872;
+
+    font-size: 16px;
+
+    margin: 20px 0 35px;
+
+    animation:
+        messageAppear 1.5s ease;
+}
+
+
+/* =========================================
+   SECRET ANIMATIONS
+========================================= */
+
+@keyframes secretAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.85)
+            translateY(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+@keyframes hatAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-30px)
+            rotate(-15deg);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+}
+
+
+@keyframes drinkAppear {
+
+    from {
+
+        opacity: 0;
+
+        letter-spacing: 10px;
+    }
+
+    to {
+
+        opacity: 1;
+
+        letter-spacing: 1px;
+    }
+}
+
+
+@keyframes messageAppear {
+
+    from {
+
+        opacity: 0;
+    }
+
+    to {
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
 @media (max-width: 500px) {
 
     .container {
@@ -340,15 +567,18 @@ p {
         padding: 40px 18px;
     }
 
+
     h1 {
 
         font-size: 32px;
     }
 
+
     h2 {
 
         font-size: 25px;
     }
+
 
     p {
 
@@ -365,41 +595,74 @@ p {
 <body>
 
 
+<!-- ======================================
+     MAIN APP
+====================================== -->
+
 <div class="container" id="app">
 
 
-<h1>CAFE SHELBY</h1>
+<h1>
+CAFE SHELBY
+</h1>
+
 
 <div class="shelby-line"></div>
 
+
 <p class="welcome">
-    به خانواده شلبی خوش آمدید
+به خانواده شلبی خوش آمدید
 </p>
 
 
-<button class="main-button" onclick="startBuilder()">
+<button
+    class="main-button"
+    onclick="startBuilder()">
 
-    <span class="icon">🥃</span>
+    <span class="icon">
+        🥃
+    </span>
 
     نوشیدنی خودت را بساز
 
 </button>
 
 
-<button class="main-button" onclick="showMenuCategories()">
+<button
+    class="main-button"
+    onclick="showMenuCategories()">
 
-    <span class="icon">📖</span>
+    <span class="icon">
+        📖
+    </span>
 
     منوی کافه
 
 </button>
 
 
-<button class="main-button" onclick="showInstagram()">
+<button
+    class="main-button"
+    onclick="showInstagram()">
 
-    <span class="icon">📸</span>
+    <span class="icon">
+        📸
+    </span>
 
     اینستاگرام کافه
+
+</button>
+
+
+<button
+    class="main-button"
+    onclick="showSecretDrink()">
+
+    <span class="icon">
+        🎩
+    </span>
+
+    Secret Shelby
 
 </button>
 
@@ -408,12 +671,27 @@ p {
 
 
 
+<!-- ======================================
+     FLOATING SECRET BUTTON
+====================================== -->
+
+<button
+    class="secret-floating-button"
+    onclick="showSecretDrink()"
+    title="Secret Shelby">
+
+    🎩
+
+</button>
+
+
+
 <script>
 
 
-/* =========================
-   اطلاعات نوشیدنی
-========================= */
+/* =========================================
+   DRINK DATA
+========================================= */
 
 let drink = {
 
@@ -430,46 +708,73 @@ let drink = {
 
 
 
-/* =========================
-   صفحه اصلی
-========================= */
+/* =========================================
+   HOME
+========================================= */
 
 function goHome() {
 
 document.getElementById("app").innerHTML = `
 
-<h1>CAFE SHELBY</h1>
+<h1>
+CAFE SHELBY
+</h1>
 
 <div class="shelby-line"></div>
 
 <p class="welcome">
-    به خانواده شلبی خوش آمدید
+به خانواده شلبی خوش آمدید
 </p>
 
 
-<button class="main-button" onclick="startBuilder()">
+<button
+    class="main-button"
+    onclick="startBuilder()">
 
-    <span class="icon">🥃</span>
+    <span class="icon">
+        🥃
+    </span>
 
     نوشیدنی خودت را بساز
 
 </button>
 
 
-<button class="main-button" onclick="showMenuCategories()">
+<button
+    class="main-button"
+    onclick="showMenuCategories()">
 
-    <span class="icon">📖</span>
+    <span class="icon">
+        📖
+    </span>
 
     منوی کافه
 
 </button>
 
 
-<button class="main-button" onclick="showInstagram()">
+<button
+    class="main-button"
+    onclick="showInstagram()">
 
-    <span class="icon">📸</span>
+    <span class="icon">
+        📸
+    </span>
 
     اینستاگرام کافه
+
+</button>
+
+
+<button
+    class="main-button"
+    onclick="showSecretDrink()">
+
+    <span class="icon">
+        🎩
+    </span>
+
+    Secret Shelby
 
 </button>
 
@@ -479,33 +784,41 @@ document.getElementById("app").innerHTML = `
 
 
 
-/* =========================
-   اینستاگرام
-========================= */
+/* =========================================
+   INSTAGRAM
+========================================= */
 
 function showInstagram() {
 
 document.getElementById("app").innerHTML = `
 
-<h2>اینستاگرام کافه</h2>
+<h2>
+اینستاگرام کافه
+</h2>
 
 <div class="shelby-line"></div>
 
 <p>
-    خانواده شلبی را در اینستاگرام دنبال کن.
+خانواده شلبی را در اینستاگرام دنبال کن.
 </p>
 
 
-<button class="main-button" onclick="openInstagram()">
+<button
+    class="main-button"
+    onclick="openInstagram()">
 
-    <span class="icon">📸</span>
+    <span class="icon">
+        📸
+    </span>
 
     ورود به پیج اینستاگرام
 
 </button>
 
 
-<button class="option back-button" onclick="goHome()">
+<button
+    class="option back-button"
+    onclick="goHome()">
 
     ← بازگشت به صفحه اصلی
 
@@ -527,66 +840,108 @@ window.open(
 
 
 
-/* =========================
-   دسته بندی منو
-========================= */
+/* =========================================
+   MENU CATEGORIES
+========================================= */
 
 function showMenuCategories() {
 
 document.getElementById("app").innerHTML = `
 
-<h2>منوی کافه</h2>
+<h2>
+منوی کافه
+</h2>
 
 <div class="shelby-line"></div>
 
 
-<button class="option" onclick="showMenu('espresso')">
-☕ اسپرسو بار
+<button
+    class="option"
+    onclick="showMenu('espresso')">
+
+    ☕ اسپرسو بار
+
 </button>
 
 
-<button class="option" onclick="showMenu('hot')">
-🔥 گرم‌نوش
+<button
+    class="option"
+    onclick="showMenu('hot')">
+
+    🔥 گرم‌نوش
+
 </button>
 
 
-<button class="option" onclick="showMenu('herbal')">
-🍵 دمنوش
+<button
+    class="option"
+    onclick="showMenu('herbal')">
+
+    🍵 دمنوش
+
 </button>
 
 
-<button class="option" onclick="showMenu('v60')">
-☕ قهوه دمی
+<button
+    class="option"
+    onclick="showMenu('v60')">
+
+    ☕ قهوه دمی
+
 </button>
 
 
-<button class="option" onclick="showMenu('iced')">
-🧊 بر پایه قهوه
+<button
+    class="option"
+    onclick="showMenu('iced')">
+
+    🧊 بر پایه قهوه
+
 </button>
 
 
-<button class="option" onclick="showMenu('shake')">
-🥤 شیک و اسموتی
+<button
+    class="option"
+    onclick="showMenu('shake')">
+
+    🥤 شیک و اسموتی
+
 </button>
 
 
-<button class="option" onclick="showMenu('mocktail')">
-🍹 ماکتل
+<button
+    class="option"
+    onclick="showMenu('mocktail')">
+
+    🍹 ماکتل
+
 </button>
 
 
-<button class="option" onclick="showMenu('special')">
-✨ اسپشیال
+<button
+    class="option"
+    onclick="showMenu('special')">
+
+    ✨ اسپشیال
+
 </button>
 
 
-<button class="option" onclick="showMenu('dessert')">
-🍰 کیک و دسر
+<button
+    class="option"
+    onclick="showMenu('dessert')">
+
+    🍰 کیک و دسر
+
 </button>
 
 
-<button class="option back-button" onclick="goHome()">
-← بازگشت به صفحه اصلی
+<button
+    class="option back-button"
+    onclick="goHome()">
+
+    ← بازگشت به صفحه اصلی
+
 </button>
 
 `;
@@ -595,17 +950,19 @@ document.getElementById("app").innerHTML = `
 
 
 
-/* =========================
-   نمایش منو
-========================= */
+/* =========================================
+   MENU ITEMS
+========================================= */
 
 function showMenu(category) {
 
 let title = "";
+
 let items = "";
 
 
-/* اسپرسو */
+
+/* ESPRESSO */
 
 if (category === "espresso") {
 
@@ -708,7 +1065,7 @@ items = `
 }
 
 
-/* گرم نوش */
+/* HOT */
 
 else if (category === "hot") {
 
@@ -759,7 +1116,7 @@ items = `
 }
 
 
-/* دمنوش */
+/* HERBAL */
 
 else if (category === "herbal") {
 
@@ -768,38 +1125,80 @@ title = "دمنوش";
 items = `
 
 <div class="menu-item">
-<div class="menu-item-name">ماچا لاته</div>
-<span class="menu-price">250,000</span>
+
+<div class="menu-item-name">
+ماچا لاته
+</div>
+
+<span class="menu-price">
+250,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">چای ساده</div>
-<span class="menu-price">70,000</span>
+
+<div class="menu-item-name">
+چای ساده
+</div>
+
+<span class="menu-price">
+70,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">چای دارچین</div>
-<span class="menu-price">75,000</span>
+
+<div class="menu-item-name">
+چای دارچین
+</div>
+
+<span class="menu-price">
+75,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">کوئین بری</div>
-<span class="menu-price">90,000</span>
+
+<div class="menu-item-name">
+کوئین بری
+</div>
+
+<span class="menu-price">
+90,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">پیچ بلک</div>
-<span class="menu-price">85,000</span>
+
+<div class="menu-item-name">
+پیچ بلک
+</div>
+
+<span class="menu-price">
+85,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">اپل پارادایس</div>
-<span class="menu-price">80,000</span>
+
+<div class="menu-item-name">
+اپل پارادایس
+</div>
+
+<span class="menu-price">
+80,000
+</span>
+
 </div>
 
 `;
@@ -832,7 +1231,7 @@ V60
 }
 
 
-/* آیس */
+/* ICED */
 
 else if (category === "iced") {
 
@@ -841,20 +1240,41 @@ title = "بر پایه قهوه";
 items = `
 
 <div class="menu-item">
-<div class="menu-item-name">آیس آمریکانو</div>
-<span class="menu-price">135,000</span>
+
+<div class="menu-item-name">
+آیس آمریکانو
+</div>
+
+<span class="menu-price">
+135,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">آیس لاته</div>
-<span class="menu-price">165,000</span>
+
+<div class="menu-item-name">
+آیس لاته
+</div>
+
+<span class="menu-price">
+165,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">آیس کارامل ماکیاتو</div>
-<span class="menu-price">245,000</span>
+
+<div class="menu-item-name">
+آیس کارامل ماکیاتو
+</div>
+
+<span class="menu-price">
+245,000
+</span>
+
 </div>
 
 `;
@@ -862,7 +1282,7 @@ items = `
 }
 
 
-/* شیک */
+/* SHAKES */
 
 else if (category === "shake") {
 
@@ -871,38 +1291,80 @@ title = "شیک و اسموتی";
 items = `
 
 <div class="menu-item">
-<div class="menu-item-name">شیک پینات</div>
-<span class="menu-price">370,000</span>
+
+<div class="menu-item-name">
+شیک پینات
+</div>
+
+<span class="menu-price">
+370,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">شیک لوتوس</div>
-<span class="menu-price">370,000</span>
+
+<div class="menu-item-name">
+شیک لوتوس
+</div>
+
+<span class="menu-price">
+370,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">چیز شیک</div>
-<span class="menu-price">300,000</span>
+
+<div class="menu-item-name">
+چیز شیک
+</div>
+
+<span class="menu-price">
+300,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">شیک شکلات</div>
-<span class="menu-price">300,000</span>
+
+<div class="menu-item-name">
+شیک شکلات
+</div>
+
+<span class="menu-price">
+300,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">منگونیت</div>
-<span class="menu-price">370,000</span>
+
+<div class="menu-item-name">
+منگونیت
+</div>
+
+<span class="menu-price">
+370,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">دراگون بری</div>
-<span class="menu-price">387,000</span>
+
+<div class="menu-item-name">
+دراگون بری
+</div>
+
+<span class="menu-price">
+387,000
+</span>
+
 </div>
 
 `;
@@ -910,7 +1372,7 @@ items = `
 }
 
 
-/* ماکتل */
+/* MOCKTAIL */
 
 else if (category === "mocktail") {
 
@@ -919,32 +1381,67 @@ title = "ماکتل";
 items = `
 
 <div class="menu-item">
-<div class="menu-item-name">شلبی</div>
-<span class="menu-price">400,000</span>
+
+<div class="menu-item-name">
+شلبی
+</div>
+
+<span class="menu-price">
+400,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">پیچ دراگون</div>
-<span class="menu-price">320,000</span>
+
+<div class="menu-item-name">
+پیچ دراگون
+</div>
+
+<span class="menu-price">
+320,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">بلوبار بری</div>
-<span class="menu-price">310,000</span>
+
+<div class="menu-item-name">
+بلوبار بری
+</div>
+
+<span class="menu-price">
+310,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">موهیتو</div>
-<span class="menu-price">270,000</span>
+
+<div class="menu-item-name">
+موهیتو
+</div>
+
+<span class="menu-price">
+270,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">لیموناد</div>
-<span class="menu-price">260,000</span>
+
+<div class="menu-item-name">
+لیموناد
+</div>
+
+<span class="menu-price">
+260,000
+</span>
+
 </div>
 
 `;
@@ -952,7 +1449,7 @@ items = `
 }
 
 
-/* اسپشیال */
+/* SPECIAL */
 
 else if (category === "special") {
 
@@ -961,20 +1458,41 @@ title = "اسپشیال";
 items = `
 
 <div class="menu-item">
-<div class="menu-item-name">دالگونا</div>
-<span class="menu-price">270,000</span>
+
+<div class="menu-item-name">
+دالگونا
+</div>
+
+<span class="menu-price">
+270,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">بلو کرما</div>
-<span class="menu-price">320,000</span>
+
+<div class="menu-item-name">
+بلو کرما
+</div>
+
+<span class="menu-price">
+320,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">آیس ماچا</div>
-<span class="menu-price">255,000</span>
+
+<div class="menu-item-name">
+آیس ماچا
+</div>
+
+<span class="menu-price">
+255,000
+</span>
+
 </div>
 
 `;
@@ -982,7 +1500,7 @@ items = `
 }
 
 
-/* دسر */
+/* DESSERT */
 
 else if (category === "dessert") {
 
@@ -991,20 +1509,41 @@ title = "کیک و دسر";
 items = `
 
 <div class="menu-item">
-<div class="menu-item-name">ترامیسو توت‌فرنگی</div>
-<span class="menu-price">280,000</span>
+
+<div class="menu-item-name">
+ترامیسو توت‌فرنگی
+</div>
+
+<span class="menu-price">
+280,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">ترامیسو شکلات</div>
-<span class="menu-price">260,000</span>
+
+<div class="menu-item-name">
+ترامیسو شکلات
+</div>
+
+<span class="menu-price">
+260,000
+</span>
+
 </div>
 
 
 <div class="menu-item">
-<div class="menu-item-name">ترامیسو قهوه</div>
-<span class="menu-price">270,000</span>
+
+<div class="menu-item-name">
+ترامیسو قهوه
+</div>
+
+<span class="menu-price">
+270,000
+</span>
+
 </div>
 
 `;
@@ -1012,11 +1551,17 @@ items = `
 }
 
 
+
+/* SHOW MENU */
+
 document.getElementById("app").innerHTML = `
 
-<h2>${title}</h2>
+<h2>
+${title}
+</h2>
 
 <div class="shelby-line"></div>
+
 
 <div class="menu-box">
 
@@ -1025,18 +1570,20 @@ ${items}
 </div>
 
 
-<button class="option back-button"
-onclick="showMenuCategories()">
+<button
+    class="option back-button"
+    onclick="showMenuCategories()">
 
-← بازگشت به منو
+    ← بازگشت به منو
 
 </button>
 
 
-<button class="option back-button"
-onclick="goHome()">
+<button
+    class="option back-button"
+    onclick="goHome()">
 
-← صفحه اصلی
+    ← صفحه اصلی
 
 </button>
 
@@ -1046,9 +1593,9 @@ onclick="goHome()">
 
 
 
-/* =========================
+/* =========================================
    DRINK BUILDER
-========================= */
+========================================= */
 
 function startBuilder() {
 
@@ -1067,34 +1614,47 @@ document.getElementById("app").innerHTML = `
 </p>
 
 
-<button class="option"
-onclick="chooseBase('اسپرسوی تلخ')">
-☕ از یک اسپرسوی تلخ
+<button
+    class="option"
+    onclick="chooseBase('اسپرسوی تلخ')">
+
+    ☕ از یک اسپرسوی تلخ
+
 </button>
 
 
-<button class="option"
-onclick="chooseBase('چای آرام')">
-🍵 از یک چای آرام
+<button
+    class="option"
+    onclick="chooseBase('چای آرام')">
+
+    🍵 از یک چای آرام
+
 </button>
 
 
-<button class="option"
-onclick="chooseBase('طعم میوه‌ای')">
-🍓 از یک طعم میوه‌ای
+<button
+    class="option"
+    onclick="chooseBase('طعم میوه‌ای')">
+
+    🍓 از یک طعم میوه‌ای
+
 </button>
 
 
-<button class="option"
-onclick="chooseBase('نوشیدنی خنک')">
-🥂 از یک نوشیدنی خنک
+<button
+    class="option"
+    onclick="chooseBase('نوشیدنی خنک')">
+
+    🥂 از یک نوشیدنی خنک
+
 </button>
 
 
-<button class="option back-button"
-onclick="goHome()">
+<button
+    class="option back-button"
+    onclick="goHome()">
 
-← بازگشت به صفحه اصلی
+    ← بازگشت به صفحه اصلی
 
 </button>
 
@@ -1123,42 +1683,47 @@ document.getElementById("app").innerHTML = `
 </p>
 
 
-<button class="option"
-onclick="chooseTemperature('گرم و صمیمی')">
+<button
+    class="option"
+    onclick="chooseTemperature('گرم و صمیمی')">
 
-🔥 گرم و صمیمی
-
-</button>
-
-
-<button class="option"
-onclick="chooseTemperature('خنک و سرحال')">
-
-❄️ خنک و سرحال
+    🔥 گرم و صمیمی
 
 </button>
 
 
-<button class="option"
-onclick="chooseTemperature('آرام و مرموز')">
+<button
+    class="option"
+    onclick="chooseTemperature('خنک و سرحال')">
 
-🌙 آرام و مرموز
-
-</button>
-
-
-<button class="option"
-onclick="chooseTemperature('پرانرژی و جسور')">
-
-⚡ پرانرژی و جسور
+    ❄️ خنک و سرحال
 
 </button>
 
 
-<button class="option back-button"
-onclick="startBuilder()">
+<button
+    class="option"
+    onclick="chooseTemperature('آرام و مرموز')">
 
-← بازگشت
+    🌙 آرام و مرموز
+
+</button>
+
+
+<button
+    class="option"
+    onclick="chooseTemperature('پرانرژی و جسور')">
+
+    ⚡ پرانرژی و جسور
+
+</button>
+
+
+<button
+    class="option back-button"
+    onclick="startBuilder()">
+
+    ← بازگشت
 
 </button>
 
@@ -1187,40 +1752,56 @@ document.getElementById("app").innerHTML = `
 </p>
 
 
-<button class="option"
-onclick="chooseFlavor('شکلات')">
-🍫 شکلات
+<button
+    class="option"
+    onclick="chooseFlavor('شکلات')">
+
+    🍫 شکلات
+
 </button>
 
 
-<button class="option"
-onclick="chooseFlavor('کارامل')">
-🍮 کارامل
+<button
+    class="option"
+    onclick="chooseFlavor('کارامل')">
+
+    🍮 کارامل
+
 </button>
 
 
-<button class="option"
-onclick="chooseFlavor('توت‌فرنگی')">
-🍓 توت‌فرنگی
+<button
+    class="option"
+    onclick="chooseFlavor('توت‌فرنگی')">
+
+    🍓 توت‌فرنگی
+
 </button>
 
 
-<button class="option"
-onclick="chooseFlavor('فندق')">
-🌰 فندق
+<button
+    class="option"
+    onclick="chooseFlavor('فندق')">
+
+    🌰 فندق
+
 </button>
 
 
-<button class="option"
-onclick="chooseFlavor('مرکبات')">
-🍋 مرکبات
+<button
+    class="option"
+    onclick="chooseFlavor('مرکبات')">
+
+    🍋 مرکبات
+
 </button>
 
 
-<button class="option back-button"
-onclick="chooseBase(drink.base)">
+<button
+    class="option back-button"
+    onclick="chooseBase(drink.base)">
 
-← بازگشت
+    ← بازگشت
 
 </button>
 
@@ -1249,42 +1830,47 @@ document.getElementById("app").innerHTML = `
 </p>
 
 
-<button class="option"
-onclick="choosePersonality('تلخ و مرموز')">
+<button
+    class="option"
+    onclick="choosePersonality('تلخ و مرموز')">
 
-🖤 تلخ و مرموز
-
-</button>
-
-
-<button class="option"
-onclick="choosePersonality('شیرین و دوست‌داشتنی')">
-
-🤎 شیرین و دوست‌داشتنی
+    🖤 تلخ و مرموز
 
 </button>
 
 
-<button class="option"
-onclick="choosePersonality('جسور و هیجان‌انگیز')">
+<button
+    class="option"
+    onclick="choosePersonality('شیرین و دوست‌داشتنی')">
 
-❤️ جسور و هیجان‌انگیز
-
-</button>
-
-
-<button class="option"
-onclick="choosePersonality('ظریف و لطیف')">
-
-🤍 ظریف و لطیف
+    🤎 شیرین و دوست‌داشتنی
 
 </button>
 
 
-<button class="option back-button"
-onclick="chooseTemperature(drink.temperature)">
+<button
+    class="option"
+    onclick="choosePersonality('جسور و هیجان‌انگیز')">
 
-← بازگشت
+    ❤️ جسور و هیجان‌انگیز
+
+</button>
+
+
+<button
+    class="option"
+    onclick="choosePersonality('ظریف و لطیف')">
+
+    🤍 ظریف و لطیف
+
+</button>
+
+
+<button
+    class="option back-button"
+    onclick="chooseTemperature(drink.temperature)">
+
+    ← بازگشت
 
 </button>
 
@@ -1313,42 +1899,47 @@ document.getElementById("app").innerHTML = `
 </p>
 
 
-<button class="option"
-onclick="chooseRisk('طعم‌های آشنا')">
+<button
+    class="option"
+    onclick="chooseRisk('طعم‌های آشنا')">
 
-😌 همون چیزهای آشنا
-
-</button>
-
-
-<button class="option"
-onclick="chooseRisk('یه چیز متفاوت')">
-
-👀 یه چیز متفاوت
+    😌 همون چیزهای آشنا
 
 </button>
 
 
-<button class="option"
-onclick="chooseRisk('سورپرایزم کن')">
+<button
+    class="option"
+    onclick="chooseRisk('یه چیز متفاوت')">
 
-🔥 سورپرایزم کن
-
-</button>
-
-
-<button class="option"
-onclick="chooseRisk('کاملاً بسپار به شانس')">
-
-🎲 کاملاً بسپار به شانس
+    👀 یه چیز متفاوت
 
 </button>
 
 
-<button class="option back-button"
-onclick="chooseFlavor(drink.flavor)">
+<button
+    class="option"
+    onclick="chooseRisk('سورپرایزم کن')">
 
-← بازگشت
+    🔥 سورپرایزم کن
+
+</button>
+
+
+<button
+    class="option"
+    onclick="chooseRisk('کاملاً بسپار به شانس')">
+
+    🎲 کاملاً بسپار به شانس
+
+</button>
+
+
+<button
+    class="option back-button"
+    onclick="chooseFlavor(drink.flavor)">
+
+    ← بازگشت
 
 </button>
 
@@ -1377,42 +1968,47 @@ document.getElementById("app").innerHTML = `
 </p>
 
 
-<button class="option"
-onclick="chooseSweetness('بدون شیرینی')">
+<button
+    class="option"
+    onclick="chooseSweetness('بدون شیرینی')">
 
-🖤 اصلاً شیرین نباشه
-
-</button>
-
-
-<button class="option"
-onclick="chooseSweetness('کم')">
-
-🤏 یه ذره
+    🖤 اصلاً شیرین نباشه
 
 </button>
 
 
-<button class="option"
-onclick="chooseSweetness('متعادل')">
+<button
+    class="option"
+    onclick="chooseSweetness('کم')">
 
-😋 متعادل
-
-</button>
-
-
-<button class="option"
-onclick="chooseSweetness('شیرین')">
-
-🍭 شیرین و جذاب
+    🤏 یه ذره
 
 </button>
 
 
-<button class="option back-button"
-onclick="choosePersonality(drink.personality)">
+<button
+    class="option"
+    onclick="chooseSweetness('متعادل')">
 
-← بازگشت
+    😋 متعادل
+
+</button>
+
+
+<button
+    class="option"
+    onclick="chooseSweetness('شیرین')">
+
+    🍭 شیرین و جذاب
+
+</button>
+
+
+<button
+    class="option back-button"
+    onclick="choosePersonality(drink.personality)">
+
+    ← بازگشت
 
 </button>
 
@@ -1441,46 +2037,65 @@ document.getElementById("app").innerHTML = `
 </p>
 
 
-<button class="option"
-onclick="chooseTopping('خامه')">
-🍦 خامه
+<button
+    class="option"
+    onclick="chooseTopping('خامه')">
+
+    🍦 خامه
+
 </button>
 
 
-<button class="option"
-onclick="chooseTopping('شکلات')">
-🍫 شکلات
+<button
+    class="option"
+    onclick="chooseTopping('شکلات')">
+
+    🍫 شکلات
+
 </button>
 
 
-<button class="option"
-onclick="chooseTopping('فندق')">
-🌰 فندق
+<button
+    class="option"
+    onclick="chooseTopping('فندق')">
+
+    🌰 فندق
+
 </button>
 
 
-<button class="option"
-onclick="chooseTopping('میوه')">
-🍓 میوه
+<button
+    class="option"
+    onclick="chooseTopping('میوه')">
+
+    🍓 میوه
+
 </button>
 
 
-<button class="option"
-onclick="chooseTopping('یه ترکیب خاص')">
-✨ یه ترکیب خاص
+<button
+    class="option"
+    onclick="chooseTopping('یه ترکیب خاص')">
+
+    ✨ یه ترکیب خاص
+
 </button>
 
 
-<button class="option"
-onclick="chooseTopping('بدون افزودنی')">
-❌ نه، همین کافیه
+<button
+    class="option"
+    onclick="chooseTopping('بدون افزودنی')">
+
+    ❌ نه، همین کافیه
+
 </button>
 
 
-<button class="option back-button"
-onclick="chooseRisk(drink.risk)">
+<button
+    class="option back-button"
+    onclick="chooseRisk(drink.risk)">
 
-← بازگشت
+    ← بازگشت
 
 </button>
 
@@ -1509,34 +2124,38 @@ document.getElementById("app").innerHTML = `
 </p>
 
 
-<button class="option"
-onclick="chooseSize('کوچیک و جمع‌وجور')">
+<button
+    class="option"
+    onclick="chooseSize('کوچیک و جمع‌وجور')">
 
-🥃 کوچیک و جمع‌وجور
-
-</button>
-
-
-<button class="option"
-onclick="chooseSize('استاندارد')">
-
-☕ استاندارد
+    🥃 کوچیک و جمع‌وجور
 
 </button>
 
 
-<button class="option"
-onclick="chooseSize('بزرگ و طولانی')">
+<button
+    class="option"
+    onclick="chooseSize('استاندارد')">
 
-🥤 بزرگ و طولانی
+    ☕ استاندارد
 
 </button>
 
 
-<button class="option back-button"
-onclick="chooseSweetness(drink.sweetness)">
+<button
+    class="option"
+    onclick="chooseSize('بزرگ و طولانی')">
 
-← بازگشت
+    🥤 بزرگ و طولانی
+
+</button>
+
+
+<button
+    class="option back-button"
+    onclick="chooseSweetness(drink.sweetness)">
+
+    ← بازگشت
 
 </button>
 
@@ -1555,9 +2174,9 @@ showResult();
 
 
 
-/* =========================
-   نتیجه نهایی
-========================= */
+/* =========================================
+   BUILDER RESULT
+========================================= */
 
 function showResult() {
 
@@ -1568,7 +2187,6 @@ document.getElementById("app").innerHTML = `
 </h1>
 
 <div class="shelby-line"></div>
-
 
 <p>
 این نوشیدنی رو خودت ساختی.
@@ -1627,18 +2245,20 @@ ${drink.size}
 </div>
 
 
-<button class="option"
-onclick="startBuilder()">
+<button
+    class="option"
+    onclick="startBuilder()">
 
-دوباره بساز
+    دوباره بساز
 
 </button>
 
 
-<button class="option back-button"
-onclick="goHome()">
+<button
+    class="option back-button"
+    onclick="goHome()">
 
-← صفحه اصلی
+    ← صفحه اصلی
 
 </button>
 
@@ -1646,7 +2266,131 @@ onclick="goHome()">
 
 }
 
+
+
+/* =========================================
+   SECRET MENU
+========================================= */
+
+const secretDrinks = [
+
+    {
+        name: "آیس منگو"
+    },
+
+    {
+        name: "اورنج کافی"
+    },
+
+    {
+        name: "گرین وی"
+    },
+
+    {
+        name: "شوکوبری"
+    },
+
+    {
+        name: "گراناپل"
+    },
+
+    {
+        name: "آفوگاتو"
+    },
+
+    {
+        name: "شیک پسته"
+    },
+
+    {
+        name: "فراپاچینو"
+    },
+
+    {
+        name: "جلی بری"
+    },
+
+    {
+        name: "جینجرکوکونات"
+    },
+
+    {
+        name: "استرانیت"
+    }
+
+];
+
+
+function showSecretDrink() {
+
+    const randomIndex =
+        Math.floor(
+            Math.random()
+            * secretDrinks.length
+        );
+
+
+    const randomDrink =
+        secretDrinks[randomIndex];
+
+
+    document.getElementById("app").innerHTML = `
+
+        <div class="secret-reveal">
+
+            <div class="secret-symbol">
+                🎩
+            </div>
+
+
+            <div class="question-number">
+                THE SECRET MENU
+            </div>
+
+
+            <h2 class="secret-drink-name">
+
+                ${randomDrink.name}
+
+            </h2>
+
+
+            <div class="shelby-line"></div>
+
+
+            <p class="secret-message">
+
+                این نوشیدنی فقط برای خانواده شلبی است.
+
+            </p>
+
+
+            <button
+                class="main-button secret-again"
+                onclick="showSecretDrink()">
+
+                🎲
+                یک نوشیدنی دیگر
+
+            </button>
+
+
+            <button
+                class="option back-button"
+                onclick="goHome()">
+
+                ← بازگشت
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
 </script>
+
 
 </body>
 
